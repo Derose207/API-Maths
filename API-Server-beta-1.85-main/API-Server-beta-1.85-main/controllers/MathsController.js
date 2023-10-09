@@ -7,8 +7,6 @@ export default class MathsController extends Controller {
         super(HttpContext);
     }
 
-
-
     help() {
         let helpPagePath = path.join(process.cwd(), wwwroot, 'API-Help-Pages/API-Math-Help.html');
         this.HttpContext.response.HTML(fs.readFileSync(helpPagePath));
@@ -48,11 +46,12 @@ export default class MathsController extends Controller {
                     primeNumer++;
                 }
             }
-            return primeNumer;}
+            return primeNumer;
+        }
 
-        
         let param = this.HttpContext.path.params;
         let answer = param;
+        console.log(param);
         if(param?.op == null){
            answer.error = "paramètres manquants";  
            //this.HttpContext.response.JSON(answer);
@@ -74,6 +73,7 @@ export default class MathsController extends Controller {
                 if(!isNaN(x) && !isNaN(y)){
                     switch (op) {
                         case " ": 
+                            answer.op = "+";
                             answer.value = x + y;
                             break;
                         case "-":
@@ -165,8 +165,6 @@ export default class MathsController extends Controller {
                             
                                 answer.value = findPrime(n);
                             
-                            
-                           
                             break;
                         
                         default:
