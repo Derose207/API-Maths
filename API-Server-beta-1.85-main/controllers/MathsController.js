@@ -51,7 +51,7 @@ export default class MathsController extends Controller {
 
         let param = this.HttpContext.path.params;
         let answer = param;
-        console.log(param);
+        
         if(param?.op == null){
            answer.error = "paramètres manquants";  
            //this.HttpContext.response.JSON(answer);
