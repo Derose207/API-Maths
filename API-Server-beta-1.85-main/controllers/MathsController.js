@@ -51,8 +51,13 @@ export default class MathsController extends Controller {
 
         let param = this.HttpContext.path.params;
         let answer = param;
+        if(Object.keys(param).length == 0) {
+            this.HttpContext.response.JSON("Annexe");
+           return;
+        }
         
         if(param?.op == null){
+            
            answer.error = "paramètres manquants";  
            //this.HttpContext.response.JSON(answer);
         }
