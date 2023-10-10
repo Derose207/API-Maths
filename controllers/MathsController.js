@@ -1,5 +1,3 @@
-import mathsModel from '../models/maths.js';
-
 import Controller from './Controller.js';
 
 export default class MathsController extends Controller {
